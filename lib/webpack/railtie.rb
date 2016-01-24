@@ -21,7 +21,8 @@ module Webpack
     config.after_initialize do
       ActiveSupport.on_load(:action_view) do
         if !::Rails.env.production?
-          system('./node_modules/.bin/webpack-dev-server')
+          webpack_server_bin ="./node_modules/.bin/webpack-dev-server"
+          Thread.new { system(webpack_server_bin) }
         end
       end
     end
