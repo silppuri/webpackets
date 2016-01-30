@@ -1,6 +1,7 @@
 require 'rails'
 require 'rails/railtie'
-# require 'webpack/rails/helper'
+require 'webpack/rails/helper'
+require 'webpack/server'
 
 module Webpack
   class Railtie < ::Rails::Railtie
@@ -12,18 +13,17 @@ module Webpack
     config.webpack.server = ActiveSupport::OrderedOptions.new
     config.webpack.server.host = 'localhost'
     config.webpack.server.port = '8080'
-    config.webpack.server.binary = 'node_modules/.bin/webpack-dev-server'
+    config.webpack.server.cmd = './node_modules/.bin/webpack-dev-server'
     config.webpack.server.enabled = !::Rails.env.production?
 
     config.webpack.output_dir = 'public/assets'
     config.webpack.public_path = 'assets'
 
-    config.after_initialize do
+    config.after_initialize do |app|
+      config = app.config
+
       ActiveSupport.on_load(:action_view) do
-        if !::Rails.env.production?
-          webpack_server_bin ="./node_modules/.bin/webpack-dev-server"
-          Thread.new { system(webpack_server_bin) }
-        end
+        Webpack::Server.new(config.webpack.server).start
       end
     end
   end
