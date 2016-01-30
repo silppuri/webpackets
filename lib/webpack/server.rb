@@ -8,7 +8,7 @@ module Webpack
       @semaphore = Mutex.new
     end
 
-    def start
+    def start()
       @semaphore.synchronize do
         return if @pid || !@enabled
         command_options = []
