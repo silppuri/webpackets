@@ -26,12 +26,7 @@ module Webpack
       ActiveSupport.on_load(:action_view) do
         include Webpack::Rails::Helper
 
-        Webpack::Server.new(config.webpack.server).start do
-          if config.webpack.use_manifest
-            # config.webpack.common_manifest = Webpack::Rails::Helper.read_manifest("common-manifest")
-          end
-        end
-
+        Webpack::Server.new(config.webpack.server).start
       end
     end
   end

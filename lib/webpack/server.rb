@@ -3,12 +3,12 @@ module Webpack
 
     def initialize(options = {})
       @enabled = options.enabled
-      @command = options.command || './node_modules/.bin/webpack-dev-server'
+      @command = options.cmd || './node_modules/.bin/webpack-dev-server'
       @pid = nil
       @semaphore = Mutex.new
     end
 
-    def start()
+    def start
       @semaphore.synchronize do
         return if @pid || !@enabled
         command_options = []
