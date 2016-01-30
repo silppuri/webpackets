@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Petri Avikainen"]
   spec.email         = ["petri.avikainen@gmail.com"]
 
-  spec.summary       = %q{Use webpack along with sprockets}
+  spec.summary       = %q{Webpack instead of sprockets}
   spec.homepage      = "https://github.com/silppuri/webpack-rails"
   spec.license       = "MIT"
 
