@@ -38,6 +38,22 @@ module Webpack
           asset
         end
       end
+
+      def javascript_include_tag(*sources)
+        return "" unless sources.present?
+        host = ::Rails.application.config.webpack.server.host
+        port = ::Rails.application.config.webpack.server.port
+        assets = Webpack::Rails::Helper.read_manifest("common-manifest")["assetsByChunkName"]
+
+        sources.map { |source|
+          asset = assets[source]
+          if ::Rails.application.config.webpack.server.enabled
+            super "http://#{host}:#{port}/#{asset}"
+          else
+            super asset
+          end
+        }.join('\n').html_safe
+      end
     end
   end
 end
