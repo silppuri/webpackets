@@ -9,6 +9,7 @@ module Webpack
     config.webpack = ActiveSupport::OrderedOptions.new
     config.webpack.config_file = 'webpack.config.js'
     config.webpack.binary = 'node_modules/.bin/webpack'
+    config.webpack.use_manifest = true
 
     config.webpack.server = ActiveSupport::OrderedOptions.new
     config.webpack.server.host = 'localhost'
@@ -23,6 +24,13 @@ module Webpack
       config = app.config
 
       ActiveSupport.on_load(:action_view) do
+        include Webpack::Rails::Helper
+
+        if config.webpack.use_manifest
+          config.webpack.common_manifest = Webpack::Rails::Helper.read_manifest(:common)
+          config.webpack.asset_manifest = Webpack::Rails::Helper.read_manifest(:asset)
+        end
+
         Webpack::Server.new(config.webpack.server).start
       end
     end
