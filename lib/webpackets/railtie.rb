@@ -1,9 +1,9 @@
 require 'rails'
 require 'rails/railtie'
-require 'webpack/rails/helper'
-require 'webpack/server'
+require 'webpackets/rails/helper'
+require 'webpackets/server'
 
-module Webpack
+module Webpackets
   class Railtie < ::Rails::Railtie
 
     config.webpack = ActiveSupport::OrderedOptions.new
@@ -24,9 +24,9 @@ module Webpack
       config = app.config
 
       ActiveSupport.on_load(:action_view) do
-        include Webpack::Rails::Helper
+        include Webpackets::Rails::Helper
 
-        Webpack::Server.new(config.webpack.server).start
+        Webpackets::Server.new(config.webpack.server).start
       end
     end
   end

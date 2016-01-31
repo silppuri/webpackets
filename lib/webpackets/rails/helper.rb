@@ -1,6 +1,6 @@
 require 'open-uri'
 
-module Webpack
+module Webpackets
   module Rails
     module Helper
 

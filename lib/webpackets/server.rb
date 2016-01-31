@@ -1,4 +1,4 @@
-module Webpack
+module Webpackets
   class Server
 
     def initialize(options = {})

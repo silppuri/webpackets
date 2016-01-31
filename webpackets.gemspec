@@ -1,16 +1,16 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'webpack/rails/version'
+require 'webpackets/rails/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "webpack-rails"
-  spec.version       = Webpack::Rails::VERSION
+  spec.name          = "webpackets"
+  spec.version       = Webpackets::Rails::VERSION
   spec.authors       = ["Petri Avikainen"]
   spec.email         = ["petri.avikainen@gmail.com"]
 
-  spec.summary       = %q{Webpack instead of sprockets}
-  spec.homepage      = "https://github.com/silppuri/webpack-rails"
+  spec.summary       = %q{Use webpack instead of sprockets}
+  spec.homepage      = "https://github.com/silppuri/webpackets"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
