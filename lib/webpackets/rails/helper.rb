@@ -5,14 +5,11 @@ module Webpackets
     module Helper
 
       def javascript_include_tag(*sources)
-        return "" unless sources.present?
-
-        url = host_url()
-        assets = read_manifest(:common)["assetsByChunkName"]
+        assets = manifest["assetsByChunkName"]
         sources.map { |source|
           asset = assets[source]
           if ::Rails.application.config.webpack.server.enabled
-            super "#{url}/#{asset}"
+            super "#{origin}/#{asset}"
           else
             super asset
           end
@@ -21,20 +18,17 @@ module Webpackets
 
       protected
 
-      def host_url
-        host = ::Rails.application.config.webpack.server.host
-        port = ::Rails.application.config.webpack.server.port
-        "http://#{host}:#{port}"
+      def origin
+        ::Rails.application.config.webpack.server.origin
       end
 
-      def manifest_name(name)
-        "webpack-#{name.to_s}-manifest.json"
+      def manifest_path
+        ::Rails.application.config.webpack.manifest_path
       end
 
-      def read_manifest(name)
-        url = "#{host_url}/#{manifest_name(name)}"
+      def manifest
         JSON.load(
-          open(url)
+          open(manifest_path)
         ).with_indifferent_access
       end
     end

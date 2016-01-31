@@ -6,11 +6,11 @@ require 'active_support/dependencies'
 require 'action_view'
 
 
-describe "Webpack::Railtie" do
+describe "Webpackets::Railtie" do
   attr_reader :app
 
   before :each do
-    require 'webpack/railtie'
+    require 'webpackets/railtie'
     @app = Class.new(Rails::Application)
     @app.config.eager_load = false
     @app.config.time_zone = 'UTC'
