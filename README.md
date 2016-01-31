@@ -1,11 +1,11 @@
-# Webpack::Rails
+# Webpackets::Rails
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'webpack-rails'
+gem 'webpackets'
 ```
 
 And then execute:
@@ -14,7 +14,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install webpack-rails
+    $ gem install webpackets
 
 ## Usage
 
@@ -28,7 +28,7 @@ TODO:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/webpack-rails.
+Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/webpackets.
 
 ## License
 
