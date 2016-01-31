@@ -1,3 +1,4 @@
+require 'pry'
 require 'open-uri'
 
 module Webpackets
@@ -5,13 +6,14 @@ module Webpackets
     module Helper
 
       def javascript_include_tag(*sources)
+        options = sources.extract_options!.stringify_keys
         assets = manifest["assetsByChunkName"]
         sources.map { |source|
           asset = assets[source]
           if ::Rails.application.config.webpack.server.enabled
-            super "#{origin}/#{asset}"
+            super "#{origin}/#{asset}", options
           else
-            super asset
+            super asset, options
           end
         }.join('\n').html_safe
       end

@@ -21,10 +21,15 @@ describe Webpackets::Rails::Helper do
 
   it "#javascript_include_tag" do
     file_name = "#{@origin}/#{JSON.load(open(MANIFEST_PATH))["assetsByChunkName"]["main"]}"
-    puts file_name
     expect(@view.javascript_include_tag(:main))
       .to eq(%(<script src="#{file_name}"></script>))
     expect(@view.javascript_include_tag("main"))
       .to eq(%(<script src="#{file_name}"></script>))
+    expect(@view.javascript_include_tag("main", :defer => "defer"))
+      .to eq(%(<script src="#{file_name}" defer="defer"></script>))
+    expect(@view.javascript_include_tag("main", :async => "async"))
+      .to eq(%(<script src="#{file_name}" async="async"></script>))
   end
+
+  it "#sylesheet_include_tag"
 end
