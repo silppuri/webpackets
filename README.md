@@ -28,7 +28,7 @@ TODO:
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/webpackets.
+Bug reports and pull requests are welcome on GitHub at https://github.com/silppuri/webpackets.
 
 ## License
 
