@@ -22,6 +22,7 @@ Or install it yourself as:
 
 TODO:
 - [ ] TESTS
+- [ ] stylesheet_include_tag?
 - [ ] generator for initial webpack config
 - [ ] precompile tasks
 - [ ] production
