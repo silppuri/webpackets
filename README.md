@@ -1,20 +1,10 @@
+[![Build Status](https://travis-ci.org/silppuri/webpackets.svg?branch=master)](https://travis-ci.org/silppuri/webpackets)
+
 # Webpackets::Rails
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'webpackets'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install webpackets
+For now, use as a local bundle.
 
 ## Usage
 
