@@ -14,7 +14,7 @@ Manage your static assets with Webpack in your Rails application and turn
 
 ## Installation
 
-:warning: Currently I do not recommend using this gem as this lacks good generator task for installing the required npm-packages and default `webpack.config.js` files. But if you want to play around:
+:warning: Currently I do not recommend using this gem as this lacks a good generator task for installing the required npm-packages and for generating the default `webpack.config.js` file. But if you want to play around:
 
 ```ruby
 gem `webpackets`, git: 'https://github.com/silppuri/webpackets/'
@@ -22,7 +22,7 @@ gem `webpackets`, git: 'https://github.com/silppuri/webpackets/'
 
 ## Usage
 
-For every entry in `webpack.config.js` you can use `javascript_include_tag` in your templates:
+For every entry in `webpack.config.js` file you can use `javascript_include_tag` in your templates:
 
 With the usual rails default directory structure:
 ```
@@ -36,7 +36,7 @@ app
 webpack.config.js
 ```
 
-In the webpack's config file with the enries defined:
+In the webpack's config file with the entries defined:
 ```
 // webpack.config.js
 var config = {
@@ -63,9 +63,7 @@ With the normal Rails template `application.html.erb`
 <%= javascript_include_tag 'boot' %>
 ```
 
-`rails server`
-Then when running the server the webpack compiles the files defined and after navigating to `localhost:3000` we can se that it works as a charm:
-
+When running the `rails server` command the webpack starts its development server and serves the files from there. And now in the console at `localhost:3000` we can se that this works like a charm:
 
 ```
 >> Hello Webpackets
