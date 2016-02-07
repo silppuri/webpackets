@@ -14,7 +14,7 @@ Manage your static assets with Webpack in your Rails application and turn
 
 ## Installation
 
-:warning: Currently I do not recommend using this gem as this lacks a good generator task for installing the required npm-packages and for generating the default `webpack.config.js` file. But if you want to play around:
+:warning: Not production ready, but if you want to play around:
 
 ```ruby
 gem `webpackets`, git: 'https://github.com/silppuri/webpackets/'
