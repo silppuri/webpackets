@@ -25,7 +25,6 @@ module Webpackets
     def shutdown
       return if !@pid || !@enabled
       Process.kill "TERM", @pid
-      Process.wait @pid
 
       @pid = nil
     end
