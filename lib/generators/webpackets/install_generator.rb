@@ -13,7 +13,7 @@ module Webpackets
       end
 
       def check_for_package_json
-        if !File.exists?('package.json')
+        unless File.exists?('package.json')
           puts "No package.json found... exiting. Please run: npm init"
           exit 0
         end
@@ -29,10 +29,9 @@ module Webpackets
         copy_file "application.js", "app/assets/javascripts/application.js"
       end
 
-      def copy_wepack
+      def copy_webpack
         copy_file "webpack.config.js", "webpack.config.js"
       end
-
     end
   end
 end
