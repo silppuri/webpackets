@@ -20,6 +20,14 @@ Manage your static assets with Webpack in your Rails application and turn
 gem `webpackets`, git: 'https://github.com/silppuri/webpackets/'
 ```
 
+Then run the generator:
+```
+rails generate webpackets:install
+```
+This will search for the `package.json`, install the required depedencies and copy a default `webpack.config.js` file and replace the old `application.js` with a new one.
+
+After this the webpackets is ready for usage!
+
 ## Usage
 
 For every entry in `webpack.config.js` file you can use `javascript_include_tag` in your templates:
@@ -70,11 +78,14 @@ When running the `rails server` command the webpack starts its development serve
 >> Wat?
 ```
 
+### CSS
+
+This does not yet take CSS into account, but with some configuration you can make it work: [Webpack's css instructions](https://webpack.github.io/docs/stylesheets.html)
+
 ## Development
 
 TODO:
 
-- [ ] generator for initial webpack config
 - [ ] precompile tasks
 - [ ] production
 
